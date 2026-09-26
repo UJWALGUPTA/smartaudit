@@ -1,0 +1,26 @@
+{
+  "name": "smartaudit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI-enriched continuous audit pipeline (MongoDB, Express, React, Node)",
+  "type": "module",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c cyan,magenta \"npm:dev -w server\" \"npm:dev -w client\"",
+    "start": "npm run build -w client && npm start -w server",
+    "seed": "npm run seed -w server --",
+    "test": "npm test -w server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@vercel/functions": "^3.9.9"
+  }
+}
